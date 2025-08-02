@@ -706,6 +706,26 @@ body {
     background-repeat: no-repeat;
 }
 
+/* Plumbing & Sanitary Page Hero Section */
+.plumbing-sanitary .hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/plumberbanner.jpg');
+    background-color: var(--primary-red); /* Fallback color */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Electrical Systems Page Hero Section */
+.electrical-systems .hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/electricbanner.jpg');
+    background-color: var(--primary-red); /* Fallback color */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
 /* Banner Section */
 .banner-section {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
