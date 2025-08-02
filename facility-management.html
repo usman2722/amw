@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facility Management - AMW</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="facility-management">
+    <!-- Floating Emergency Call Button -->
+    <div class="floating-emergency-btn">
+        <a href="tel:971523284847" class="emergency-call-btn">
+            <div class="btn-content">
+                <i class="fas fa-fire-extinguisher"></i>
+                <span class="btn-text">FIRE EMERGENCY</span>
+                <span class="btn-number">CALL NOW</span>
+            </div>
+            <div class="btn-shine"></div>
+        </a>
+    </div>
+
+    <!-- Floating WhatsApp Icon -->
+    <div class="floating-whatsapp-icon">
+        <a href="https://wa.me/971523284847" target="_blank" class="whatsapp-icon-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html" style="display: flex; align-items: center; gap: 0;">
+                <img src="images/logo4.png" alt="AMW Logo" style="height: 50px; filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%); mix-blend-mode: color-dodge; max-height: 50px; object-fit: contain;">
+                <span style="color: white;">AMW</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fire-safety-services-details.html">Fire Safety Solutions</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active" href="#">
+                            Facility Management
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">
+                                    Hard FM
+                                </a>
+                                <ul class="dropdown-menu submenu">
+                                    <li><a class="dropdown-item" href="mep-maintenance.html">HVAC (Heating, Ventilation & Air Conditioning) Maintenance</a></li>
+                                    <li><a class="dropdown-item" href="electrical-systems.html">Electrical System Installation & Maintenance</a></li>
+                                    <li><a class="dropdown-item" href="plumbing-sanitary.html">Plumbing & Sanitary Contracting</a></li>
+                                    <li><a class="dropdown-item" href="fire-safety-services-details.html">Fire Fighting & Safety Equipment Installation</a></li>
+                                    <li><a class="dropdown-item" href="building-fabric.html">Building Fabric Maintenance (Walls, Doors, Windows, Roofs)</a></li>
+                                    <li><a class="dropdown-item" href="#">Elevator & Escalator Maintenance</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">
+                                    Soft FM
+                                </a>
+                                <ul class="dropdown-menu submenu">
+                                    <li><a class="dropdown-item" href="#">Cleaning & Janitorial Services</a></li>
+                                    <li><a class="dropdown-item" href="#">Pest Control</a></li>
+                                    <li><a class="dropdown-item" href="#">Security & Access Control</a></li>
+                                    <li><a class="dropdown-item" href="#">Disinfection & Sanitization</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                <div class="navbar-social">
+                    <a href="#" class="nav-social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="nav-social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="nav-social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="nav-social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay">
+            <div class="container">
+                <div class="row min-vh-100 align-items-center">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h1 class="display-4 fw-bold text-white mb-4">
+                            Professional Facility Management Services
+                        </h1>
+                        <p class="lead text-white mb-4">
+                            Comprehensive facility management solutions that optimize operations, reduce costs, and enhance the value of your property. 
+                            From maintenance to security, we handle it all with expertise and efficiency.
+                        </p>
+                        <div class="d-flex gap-3 justify-content-center">
+                            <a href="services.html" class="btn btn-danger btn-lg">
+                                <i class="fas fa-arrow-right me-2"></i>More Services
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facility Management Image Section -->
+    <section class="pt-3 pb-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="facility-image-container">
+                        <img src="images/facility management.jpg" alt="Professional Facility Management Services" class="img-fluid rounded shadow-lg">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="facility-content">
+                        <h2 class="display-5 fw-bold text-dark mb-4">Comprehensive Facility Management Solutions</h2>
+                        <p class="lead text-muted mb-4">
+                            Our facility management services encompass every aspect of building operations, from day-to-day maintenance to strategic planning and optimization.
+                        </p>
+                        <p class="text-muted mb-4">
+                            We understand that every facility has unique requirements and challenges. Our team of certified professionals works closely with you to develop customized solutions that maximize efficiency, reduce costs, and ensure compliance with all regulatory standards.
+                        </p>
+                        <div class="facility-features">
+                            <div class="feature-item mb-3">
+                                <i class="fas fa-check-circle text-danger me-3"></i>
+                                <span class="fw-bold">24/7 Monitoring & Response</span>
+                            </div>
+                            <div class="feature-item mb-3">
+                                <i class="fas fa-check-circle text-danger me-3"></i>
+                                <span class="fw-bold">Preventive Maintenance Programs</span>
+                            </div>
+                            <div class="feature-item mb-3">
+                                <i class="fas fa-check-circle text-danger me-3"></i>
+                                <span class="fw-bold">Energy Efficiency Optimization</span>
+                            </div>
+                            <div class="feature-item mb-3">
+                                <i class="fas fa-check-circle text-danger me-3"></i>
+                                <span class="fw-bold">Compliance & Safety Management</span>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="btn btn-danger btn-lg mt-3">
+                            <i class="fas fa-phone me-2"></i>Get Free Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold text-dark mb-3">Our Facility Management Services</h2>
+                    <p class="lead text-muted">
+                        End-to-end facility management solutions tailored to your specific needs
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm stagger-item">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box mb-3">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">Maintenance Management</h5>
+                            <p class="card-text text-muted">
+                                Preventive and reactive maintenance programs to keep your facility running smoothly and efficiently.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm stagger-item">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box mb-3">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">Security Services</h5>
+                            <p class="card-text text-muted">
+                                Comprehensive security solutions including access control, surveillance, and emergency response.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm stagger-item">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box mb-3">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">Environmental Management</h5>
+                            <p class="card-text text-muted">
+                                Sustainable practices and compliance management for environmental regulations and standards.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold text-dark mb-3">Comprehensive Facility Solutions</h2>
+                    <p class="lead text-muted">
+                        From day-to-day operations to strategic planning, we cover every aspect of facility management
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="service-detail-card card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="service-icon-large me-3">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-3">Building Operations</h5>
+                                    <ul class="list-unstyled text-muted">
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>HVAC system management</li>
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Electrical systems maintenance</li>
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Plumbing and water systems</li>
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Elevator and escalator services</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-detail-card card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="service-icon-large me-3">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-3">Staff Management</h5>
+                                    <ul class="list-unstyled text-muted">
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Facility staff recruitment</li>
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Training and development</li>
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Performance monitoring</li>
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>24/7 staffing solutions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-detail-card card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="service-icon-large me-3">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-3">Performance Analytics</h5>
+                                    <ul class="list-unstyled text-muted">
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Energy consumption tracking</li>
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Cost optimization analysis</li>
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Efficiency reporting</li>
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Predictive maintenance insights</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-detail-card card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="service-icon-large me-3">
+                                    <i class="fas fa-clipboard-list"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-3">Compliance & Safety</h5>
+                                    <ul class="list-unstyled text-muted">
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Regulatory compliance</li>
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Safety audits and inspections</li>
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Emergency preparedness</li>
+                                        <li class="mb-2"><i class="fas fa-check text-danger me-2"></i>Risk assessment and mitigation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="services.html" class="btn btn-danger btn-lg">
+                    <i class="fas fa-arrow-right me-2"></i>More Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold text-dark mb-3">Why Choose Our Facility Management?</h2>
+                    <p class="lead text-muted">
+                        Experience the benefits of professional facility management services
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card text-center stagger-item">
+                        <div class="benefit-icon mb-3">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h5 class="fw-bold">Cost Reduction</h5>
+                        <p class="text-muted">Optimize operational costs through efficient management and preventive maintenance</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card text-center stagger-item">
+                        <div class="benefit-icon mb-3">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h5 class="fw-bold">24/7 Support</h5>
+                        <p class="text-muted">Round-the-clock facility monitoring and emergency response services</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card text-center stagger-item">
+                        <div class="benefit-icon mb-3">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h5 class="fw-bold">Expert Team</h5>
+                        <p class="text-muted">Certified professionals with extensive experience in facility management</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card text-center stagger-item">
+                        <div class="benefit-icon mb-3">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h5 class="fw-bold">Performance Tracking</h5>
+                        <p class="text-muted">Comprehensive analytics and reporting for continuous improvement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold text-dark mb-3">Our Facility Management Process</h2>
+                    <p class="lead text-muted">
+                        A systematic approach to delivering exceptional facility management services
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-card text-center stagger-item">
+                        <div class="process-number mb-3">1</div>
+                        <h5 class="fw-bold">Assessment</h5>
+                        <p class="text-muted">Comprehensive facility evaluation and needs analysis</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-card text-center stagger-item">
+                        <div class="process-number mb-3">2</div>
+                        <h5 class="fw-bold">Planning</h5>
+                        <p class="text-muted">Strategic planning and customized service development</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-card text-center stagger-item">
+                        <div class="process-number mb-3">3</div>
+                        <h5 class="fw-bold">Implementation</h5>
+                        <p class="text-muted">Seamless execution of facility management solutions</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-card text-center stagger-item">
+                        <div class="process-number mb-3">4</div>
+                        <h5 class="fw-bold">Monitoring</h5>
+                        <p class="text-muted">Continuous monitoring and performance optimization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-danger text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h3 class="fw-bold mb-3">Ready to Optimize Your Facility?</h3>
+                    <p class="lead mb-0">
+                        Get a comprehensive facility assessment and discover how our management services can transform your operations.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="contact.html" class="btn btn-light btn-lg">
+                        <i class="fas fa-calendar-check me-2"></i>Schedule Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="row g-4 mb-4">
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-section">
+                        <h5 class="fw-bold mb-3" style="display: flex; align-items: center; gap: 0;">
+                            <img src="images/logo4.png" alt="AMW Logo" style="height: 50px; filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%); mix-blend-mode: color-dodge;">
+                            <span style="color: white; line-height: 50px;">AMW</span>
+                        </h5>
+                        <p class="text-muted mb-3">
+                            Your trusted partner in fire safety and facilities management for over 15 years. 
+                            We protect lives and property with innovative solutions and certified expertise.
+                        </p>
+
+                        <!-- Social Media -->
+                        <div class="social-links mt-3">
+                            <h6 class="fw-bold mb-2">Follow Us</h6>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Services -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="fw-bold mb-3">Our Services</h6>
+                        <ul class="footer-links">
+                            <li><a href="facility-management.html">Facility Management</a></li>
+                            <li><a href="services.html#fire-extinguishers">Fire Extinguishers</a></li>
+                            <li><a href="services.html#alarm-systems">Alarm Systems</a></li>
+                            <li><a href="services.html#sprinklers">Sprinkler Systems</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="fw-bold mb-3">Quick Links</h6>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="fw-bold mb-3">Contact Information</h6>
+                        <div class="contact-info">
+                            <div class="contact-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-map-marker-alt text-danger me-3 mt-1"></i>
+                                    <div>
+                                        <strong>Head Office</strong><br>
+                                        <span class="text-muted">123 Fire Safety Drive<br>
+                                        Safety City, SC 12345</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-phone text-danger me-3 mt-1"></i>
+                                    <div>
+                                        <strong>Phone</strong><br>
+                                        <span class="text-muted">Main: (555) 123-4567<br>
+                                        Emergency: (555) 911-0000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-envelope text-danger me-3 mt-1"></i>
+                                    <div>
+                                        <strong>Email</strong><br>
+                                        <span class="text-muted">info@firesafepro.com<br>
+                                        emergency@firesafepro.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="mb-0">&copy; 2024 AMW. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-danger position-fixed d-none" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); console.log('HTML onclick triggered');" style="z-index: 9999; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); background-color: #dc3545 !important; cursor: pointer; bottom: 20px; right: 120px;">
+        <i class="fas fa-arrow-up" style="color: white !important;"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html> 

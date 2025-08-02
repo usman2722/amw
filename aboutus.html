@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - AMW</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/banner1.png') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stats-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(220, 53, 69, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .stats-card:hover::before {
+            left: 100%;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(220, 53, 69, 0.15);
+        }
+        
+        .stats-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            position: relative;
+        }
+        
+        .stats-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-red), var(--dark-red));
+            z-index: -1;
+        }
+        
+        .value-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(220, 53, 69, 0.1);
+            box-shadow: 0 10px 30px rgba(220, 53, 69, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--dark-red));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(220, 53, 69, 0.15);
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-red), var(--dark-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .chairman-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid rgba(220, 53, 69, 0.1);
+            box-shadow: 0 15px 40px rgba(220, 53, 69, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chairman-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(220, 53, 69, 0.05) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .chairman-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--primary-red);
+            opacity: 0.3;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-red);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html" style="display: flex; align-items: center; gap: 0;">
+                <img src="images/logo4.png" alt="AMW Logo" style="height: 50px; filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%); mix-blend-mode: color-dodge; max-height: 50px; object-fit: contain;">
+                <span style="color: white;">AMW</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fire-safety-services-details.html">Fire Safety Solutions</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">
+                            Facility Management
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">
+                                    Hard FM
+                                </a>
+                                <ul class="dropdown-menu submenu">
+                                    <li><a class="dropdown-item" href="mep-maintenance.html">HVAC (Heating, Ventilation & Air Conditioning) Maintenance</a></li>
+                                    <li><a class="dropdown-item" href="electrical-systems.html">Electrical System Installation & Maintenance</a></li>
+                                    <li><a class="dropdown-item" href="plumbing-sanitary.html">Plumbing & Sanitary Contracting</a></li>
+                                    <li><a class="dropdown-item" href="fire-safety-services-details.html">Fire Fighting & Safety Equipment Installation</a></li>
+                                    <li><a class="dropdown-item" href="building-fabric.html">Building Fabric Maintenance (Walls, Doors, Windows, Roofs)</a></li>
+                                    <li><a class="dropdown-item" href="#">Elevator & Escalator Maintenance</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">
+                                    Soft FM
+                                </a>
+                                <ul class="dropdown-menu submenu">
+                                    <li><a class="dropdown-item" href="#">Cleaning & Janitorial Services</a></li>
+                                    <li><a class="dropdown-item" href="#">Pest Control</a></li>
+                                    <li><a class="dropdown-item" href="#">Security & Access Control</a></li>
+                                    <li><a class="dropdown-item" href="#">Disinfection & Sanitization</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="aboutus.html">About</a>
+                    </li>
+                </ul>
+                <div class="navbar-social">
+                    <a href="#" class="nav-social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="nav-social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="nav-social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="nav-social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero py-5" style="margin-top: 76px;">
+        <div class="container">
+            <div class="row min-vh-50 align-items-center">
+                <div class="col-lg-8 mx-auto text-center about-hero-content">
+                    <h1 class="display-4 fw-bold text-white mb-4 fade-in-up">
+                        <i class="fas fa-building me-3"></i>About AMW
+                    </h1>
+                    <p class="lead text-white-50 mb-0 fade-in-up">
+                        Trusted provider of Integrated Facilities Management and Technical Services since 2008
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Overview -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-5 fw-bold text-dark mb-4">Our Story</h2>
+                    <p class="lead text-muted">
+                        AMW, established in 2008 and headquartered in Dubai, United Arab Emirates, is a trusted provider of Integrated Facilities Management and Technical Services. Over the years, we've grown into a respected organization known for operational excellence, innovation, and delivering tailored solutions across commercial, residential, industrial, and public sector projects.
+                    </p>
+                    <p class="text-muted">
+                        We offer a full spectrum of services—from routine maintenance to complete facilities management—designed to enhance the performance and value of our clients' assets.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold text-dark mb-3">
+                        <i class="fas fa-chart-line me-3" style="color: #dc3545;"></i>Our Achievements
+                    </h2>
+                    <p class="lead text-muted mb-0">Milestones that define our journey of excellence</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="counter" data-target="15" data-suffix="+">0</h3>
+                        <p class="text-muted fw-bold mb-0">Years of Experience</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="counter" data-target="500" data-suffix="+">0</h3>
+                        <p class="text-muted fw-bold mb-0">Happy Clients</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="counter" data-target="1000" data-suffix="+">0</h3>
+                        <p class="text-muted fw-bold mb-0">Projects Completed</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="counter" data-target="50" data-suffix="+">0</h3>
+                        <p class="text-muted fw-bold mb-0">Awards Won</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="value-card h-100">
+                        <div class="value-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="fw-bold text-dark mb-3">Our Mission</h3>
+                        <p class="text-muted mb-0">
+                            To deliver reliable, high-quality, and innovative services that elevate our clients' environments and operations.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="value-card h-100">
+                        <div class="value-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="fw-bold text-dark mb-3">Our Vision</h3>
+                        <p class="text-muted mb-0">
+                            To be the UAE's most trusted facilities management partner, recognized for excellence, integrity, and innovation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold text-dark mb-3">
+                        <i class="fas fa-heart me-3" style="color: #dc3545;"></i>Our Core Values
+                    </h2>
+                    <p class="lead text-muted mb-0">The principles that guide everything we do</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="value-card text-center">
+                        <div class="value-icon mx-auto">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-3">Integrity</h4>
+                        <p class="text-muted mb-0">We do what's right, always.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="value-card text-center">
+                        <div class="value-icon mx-auto">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-3">Excellence</h4>
+                        <p class="text-muted mb-0">We strive to improve every day.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="value-card text-center">
+                        <div class="value-icon mx-auto">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-3">Honesty</h4>
+                        <p class="text-muted mb-0">Open and transparent communication.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="value-card text-center">
+                        <div class="value-icon mx-auto">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-3">Mutual Respect</h4>
+                        <p class="text-muted mb-0">We grow through strong relationships.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chairman's Message -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="chairman-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <div class="row align-items-center">
+                            <div class="col-lg-8">
+                                <h3 class="fw-bold text-dark mb-4">Chairman's Message</h3>
+                                <p class="lead text-muted mb-4">
+                                    "At AMW, our growth reflects the trust our clients place in us and the values we uphold. From a humble start to a national presence, our focus remains on delivering personalized, client-centered service backed by integrity, innovation, and excellence."
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <h5 class="fw-bold text-dark mb-1">Ahmed Al Mansouri</h5>
+                                        <p class="text-muted mb-0">Chairman – AMW</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <div style="width: 150px; height: 150px; background: linear-gradient(45deg, var(--primary-red), var(--dark-red)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                    <i class="fas fa-user-tie text-white" style="font-size: 3rem;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-section">
+                        <h5 class="fw-bold mb-3" style="display: flex; align-items: center; gap: 0;">
+                            <img src="images/logo4.png" alt="AMW Logo" style="height: 50px; filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%); mix-blend-mode: color-dodge;">
+                            <span style="color: white; line-height: 50px;">AMW</span>
+                        </h5>
+                        <p class="text-muted mb-3">
+                            Your trusted partner in facilities management and technical services for over 15 years. 
+                            We protect lives and property with innovative solutions and certified expertise.
+                        </p>
+
+                        <!-- Social Media -->
+                        <div class="social-links mt-3">
+                            <h6 class="fw-bold mb-2">Follow Us</h6>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Services -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="fw-bold mb-3">Our Services</h6>
+                        <ul class="footer-links">
+                            <li><a href="facility-management.html">Facility Management</a></li>
+                            <li><a href="fire-fighting-safety.html">Fire Safety</a></li>
+                            <li><a href="fire-safety-services-details.html">Fire Safety Services</a></li>
+                            <li><a href="#">Technical Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="fw-bold mb-3">Quick Links</h6>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="aboutus.html">About Us</a></li>
+                            <li><a href="fire-safety-services-details.html">Services</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="fw-bold mb-3">Contact Information</h6>
+                        <div class="contact-info">
+                            <div class="contact-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-map-marker-alt text-danger me-3 mt-1"></i>
+                                    <div>
+                                        <strong>Head Office</strong><br>
+                                        <span class="text-muted">Dubai, United Arab Emirates</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-phone text-danger me-3 mt-1"></i>
+                                    <div>
+                                        <strong>Phone</strong><br>
+                                        <span class="text-muted">Main: (971) 4 123 4567<br>
+                                        Emergency: (971) 50 911 0000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-envelope text-danger me-3 mt-1"></i>
+                                    <div>
+                                        <strong>Email</strong><br>
+                                        <span class="text-muted">info@amw.ae<br>
+                                        emergency@amw.ae</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom pt-4 border-top border-secondary">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0">&copy; 2024 AMW. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="footer-bottom-links">
+                            <a href="#" class="text-muted me-3">Privacy Policy</a>
+                            <a href="#" class="text-muted me-3">Terms of Service</a>
+                            <a href="#" class="text-muted">Cookie Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-danger position-fixed d-none" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); console.log('HTML onclick triggered');" style="z-index: 9999; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); background-color: #dc3545 !important; cursor: pointer; bottom: 20px; right: 120px;">
+        <i class="fas fa-arrow-up" style="color: white !important;"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Animated Counter Function
+        function animateCounter(element) {
+            const target = parseFloat(element.getAttribute('data-target'));
+            const suffix = element.getAttribute('data-suffix') || '';
+            const duration = 2000; // 2 seconds
+            const step = target / (duration / 16); // 60fps
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                if (target % 1 === 0) {
+                    element.textContent = Math.floor(current).toLocaleString() + suffix;
+                } else {
+                    element.textContent = current.toFixed(1) + suffix;
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for counter animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    animateCounter(counter);
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe all counter elements
+        document.querySelectorAll('.counter').forEach(counter => {
+            observer.observe(counter);
+        });
+
+        // Back to top functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggle = document.querySelector('.nav-item.dropdown .nav-link');
+            const dropdownMenu = document.querySelector('.nav-item.dropdown .dropdown-menu');
+
+            if (dropdownToggle && dropdownMenu) {
+                dropdownToggle.addEventListener('mouseenter', function() {
+                    dropdownMenu.style.display = 'block';
+                });
+
+                dropdownToggle.parentElement.addEventListener('mouseleave', function() {
+                    dropdownMenu.style.display = 'none';
+                });
+
+                dropdownMenu.addEventListener('mouseenter', function() {
+                    dropdownMenu.style.display = 'block';
+                });
+
+                dropdownMenu.addEventListener('mouseleave', function() {
+                    dropdownMenu.style.display = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
