@@ -666,7 +666,7 @@ body {
 /* Hero Section */
 .hero-section {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url('../images/homebanner.jpeg');
+                url('../images/banner1.png');
     background-color: var(--primary-red); /* Fallback color */
     background-size: cover;
     background-position: center;
