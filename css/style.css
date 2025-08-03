@@ -345,6 +345,10 @@ body {
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(220, 53, 69, 0.08);
     border: 1px solid rgba(220, 53, 69, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .process-card:hover {
@@ -371,6 +375,17 @@ body {
 .process-card:hover .process-number {
     transform: scale(1.1);
     box-shadow: 0 10px 25px rgba(220, 53, 69, 0.3);
+}
+
+/* Process section row equal height */
+.process-section .row {
+    align-items: stretch;
+}
+
+.process-section .col-lg-3,
+.process-section .col-md-6 {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Facility Management Image Section Styles */
@@ -657,10 +672,26 @@ body {
     padding: 0.25rem 0.5rem;
     color: var(--white) !important;
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    color: var(--primary-red) !important;
+    transform: scale(1.1);
 }
 
 .navbar-toggler:focus {
     box-shadow: none;
+    color: var(--primary-red) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(220, 53, 69, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* Hero Section */
@@ -724,6 +755,37 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+}
+
+/* Elevator & Escalator Page Hero Section */
+.elevator-escalator .hero-section {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 50%, #a71e2a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.elevator-escalator section:not(.hero-section) {
+    position: relative;
+    z-index: 1;
+}
+
+.elevator-escalator section:not(.hero-section)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(220, 53, 69, 0.05) 0%, rgba(200, 35, 51, 0.05) 100%);
+    z-index: -1;
+}
+
+.elevator-escalator .bg-light {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+}
+
+.elevator-escalator .bg-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
 }
 
 /* Banner Section */
@@ -2030,27 +2092,227 @@ footer a:hover {
         font-size: 1rem;
     }
 
+    /* Mobile Navbar Styles */
+    .navbar {
+        background: rgba(0, 0, 0, 0.95) !important;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar-collapse {
+        background: rgba(0, 0, 0, 0.95) !important;
+        backdrop-filter: blur(10px);
+        border-radius: 8px;
+        margin-top: 10px;
+        padding: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .navbar-nav {
+        margin-top: 1rem;
+    }
+    
+    .navbar-nav .nav-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.5rem 0;
+    }
+    
+    .navbar-nav .nav-item:last-child {
+        border-bottom: none;
+    }
+    
+    .navbar-nav .nav-link {
+        color: white !important;
+        padding: 0.75rem 0;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        color: var(--primary-red) !important;
+        transform: translateX(5px);
+    }
+    
+    .navbar-nav .nav-link.active {
+        color: var(--primary-red) !important;
+        background: rgba(220, 53, 69, 0.1);
+        border-radius: 5px;
+        padding: 0.75rem 1rem;
+    }
+    
+    /* Mobile Dropdown Styles */
+    .dropdown-menu {
+        background: rgba(0, 0, 0, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: none;
+    }
+    
+    .dropdown-menu.show {
+        display: block !important;
+    }
+    
+    .dropdown-item {
+        color: white !important;
+        padding: 0.75rem 1rem;
+        border-radius: 5px;
+        margin: 0.25rem 0;
+        transition: all 0.3s ease;
+    }
+    
+    .dropdown-item:hover {
+        background: var(--primary-red) !important;
+        color: white !important;
+        transform: translateX(5px);
+    }
+    
+    .dropdown-item:focus {
+        background: var(--primary-red) !important;
+        color: white !important;
+    }
+    
     /* Mobile dropdown adjustments */
     .dropdown-submenu .submenu {
-        position: static;
-        left: auto;
-        top: auto;
-        min-width: auto;
-        box-shadow: none;
-        border: none;
-        border-left: 2px solid var(--primary-red);
-        margin-left: 1rem;
+        position: static !important;
+        left: auto !important;
+        top: auto !important;
+        min-width: auto !important;
+        background: rgba(0, 0, 0, 0.6) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
         margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-left: 1rem;
+        padding: 0.5rem;
         display: none;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        z-index: auto;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
     }
-
-    .dropdown-submenu:hover .submenu {
-        display: block;
-        transform: none;
+    
+    .dropdown-submenu.show .submenu {
+        display: block !important;
+    }
+    
+    .submenu .dropdown-item {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        white-space: normal;
+        margin: 0.25rem 0;
+    }
+    
+    .submenu .dropdown-item:hover {
+        background: var(--primary-red) !important;
+        color: white !important;
+        transform: translateX(5px);
+    }
+    
+    /* Mobile Toggle Indicators */
+    .dropdown-toggle::after {
+        transform: rotate(90deg);
+        transition: transform 0.3s ease;
+    }
+    
+    .dropdown-toggle[aria-expanded="true"]::after {
+        transform: rotate(180deg);
+    }
+    
+    .dropdown-submenu .dropdown-toggle::after {
+        transform: rotate(90deg);
+    }
+    
+    .dropdown-submenu.show .dropdown-toggle::after {
+        transform: rotate(180deg);
+    }
+    
+    /* Prevent Bootstrap auto-close on mobile dropdown clicks */
+    .navbar-collapse.show {
+        display: block !important;
+    }
+    
+    /* Prevent mobile menu from closing when clicking dropdown items */
+    .nav-item.dropdown .nav-link:focus,
+    .nav-item.dropdown .nav-link:active {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Override Bootstrap's default mobile dropdown behavior */
+    .navbar-collapse.collapsing {
+        height: auto !important;
+        overflow: visible !important;
+    }
+    
+    /* Ensure dropdown stays open on mobile */
+    .dropdown-menu.show {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+    
+    /* Prevent touch events from closing mobile menu */
+    .navbar-nav .nav-item.dropdown {
+        touch-action: manipulation;
+    }
+    
+    .navbar-nav .nav-item.dropdown .nav-link {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Mobile submenu styling */
+    .dropdown-submenu .submenu {
+        position: static !important;
+        float: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-radius: 4px !important;
+        margin-top: 5px !important;
+        margin-left: 15px !important;
+        display: none !important;
+    }
+    
+    .dropdown-submenu .submenu.show {
+        display: block !important;
+    }
+    
+    .dropdown-submenu .submenu .dropdown-item {
+        padding: 8px 15px !important;
+        color: #fff !important;
+        border: none !important;
+        background: transparent !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .dropdown-submenu .submenu .dropdown-item:hover {
+        background: rgba(220, 53, 69, 0.8) !important;
+        color: #fff !important;
+    }
+    
+    /* Nested submenu styling */
+    .dropdown-submenu .submenu .dropdown-submenu .submenu {
+        margin-left: 15px !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+    }
+    
+    .dropdown-submenu .submenu .dropdown-submenu .submenu .dropdown-item {
+        padding: 6px 15px !important;
+        font-size: 0.85rem !important;
+    }
     }
 
     .dropdown-toggle::after {
@@ -2066,7 +2328,7 @@ footer a:hover {
         padding: 8px 15px;
         font-size: 0.85rem;
     }
-}
+
 
 @media (max-width: 576px) {
     .hero-overlay {
@@ -2526,17 +2788,21 @@ footer a:hover {
 .floating-whatsapp-icon {
     position: fixed;
     bottom: 20px;
-    right: 80px;
+    right: 20px;
     z-index: 999;
     transition: all 0.3s ease, opacity 0.5s ease, visibility 0.5s ease;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .whatsapp-icon-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 80px;
+    width: 56px;
+    height: 56px;
     background: linear-gradient(135deg, #25D366 0%, #128C7E 50%, #075E54 100%);
     color: white;
     text-decoration: none;
@@ -2545,13 +2811,23 @@ footer a:hover {
     transition: all 0.3s ease;
     border: 2px solid rgba(255, 255, 255, 0.3);
     font-size: 2.2rem;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    cursor: pointer;
 }
 
-.whatsapp-icon-btn:hover {
+.whatsapp-icon-btn:hover,
+.whatsapp-icon-btn:focus {
     transform: translateY(-5px) scale(1.1);
     box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6), 0 6px 20px rgba(0, 0, 0, 0.3);
     color: white;
     text-decoration: none;
+    outline: none;
+}
+
+.whatsapp-icon-btn:active {
+    transform: translateY(-2px) scale(1.05);
+    transition: transform 0.1s ease;
 }
 
 .whatsapp-icon-btn i {
@@ -2581,27 +2857,64 @@ footer a:hover {
 /* Mobile Responsive for WhatsApp icon */
 @media (max-width: 768px) {
     .floating-whatsapp-icon {
-        right: 70px;
+        right: 10px;
         bottom: 15px;
+        z-index: 1000;
     }
     
     .whatsapp-icon-btn {
-        width: 65px;
-        height: 65px;
+        width: 48px;
+        height: 48px;
         font-size: 1.8rem;
+        border-radius: 50%;
+        box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4), 0 3px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .whatsapp-icon-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6), 0 4px 16px rgba(0, 0, 0, 0.3);
     }
 }
 
 @media (max-width: 576px) {
     .floating-whatsapp-icon {
-        right: 60px;
-        bottom: 10px;
+        right: 8px;
+        bottom: 12px;
+        z-index: 1000;
     }
     
     .whatsapp-icon-btn {
-        width: 55px;
-        height: 55px;
-        font-size: 1.5rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.6rem;
+        border-radius: 50%;
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .whatsapp-icon-btn:hover {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6), 0 3px 12px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-whatsapp-icon {
+        right: 6px;
+        bottom: 10px;
+        z-index: 1000;
+    }
+    
+    .whatsapp-icon-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+        border-radius: 50%;
+        box-shadow: 0 3px 16px rgba(37, 211, 102, 0.4), 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    
+    .whatsapp-icon-btn:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6), 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 } 
 
@@ -3563,4 +3876,497 @@ footer a:hover {
     .mep-branch-text {
         font-size: 0.7rem;
     }
+}
+
+/* Elevator & Escalator specific styles */
+.elevator-escalator .hero-section {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 50%, #a71e2a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.elevator-escalator section:not(.hero-section) {
+    position: relative;
+    z-index: 1;
+}
+
+.elevator-escalator section:not(.hero-section)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(220, 53, 69, 0.05) 0%, rgba(200, 35, 51, 0.05) 100%);
+    z-index: -1;
+}
+
+.elevator-escalator .bg-light {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+}
+
+.elevator-escalator .bg-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+}
+
+/* Maintenance Card Styles */
+.maintenance-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.maintenance-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(220, 53, 69, 0.2) !important;
+}
+
+.maintenance-icon {
+    transition: all 0.3s ease;
+}
+
+.maintenance-card:hover .maintenance-icon {
+    transform: scale(1.1);
+}
+
+.maintenance-card:hover .maintenance-icon i {
+    color: #dc3545 !important;
+}
+
+/* Elevator Card Styles */
+.elevator-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.elevator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.elevator-icon {
+    transition: all 0.3s ease;
+}
+
+.elevator-card:hover .elevator-icon {
+    transform: scale(1.1);
+}
+
+.elevator-card:hover .elevator-icon i {
+    color: #dc3545 !important;
+}
+
+/* Feature Highlight Styles */
+.feature-highlight {
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+.feature-highlight:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(220, 53, 69, 0.15);
+}
+
+/* Statistics Animation Enhancement */
+.stat-card .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-number {
+    transform: scale(1.1);
+    color: white !important;
+}
+
+.stat-card .stat-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+.stat-card .stat-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.stat-card .stat-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.stat-card:hover .stat-icon {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Fix for stat cards in red background sections */
+.bg-danger .stat-card {
+    background: transparent !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+.bg-danger .stat-card:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Comprehensive Elevator Solutions Cards */
+.service-detail-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(220, 53, 69, 0.15) !important;
+}
+
+.service-detail-card .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-detail-card .service-icon-large {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.service-detail-card .service-icon-large i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.service-detail-card:hover .service-icon-large {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
+}
+
+.service-detail-card h5 {
+    color: var(--dark);
+    transition: all 0.3s ease;
+}
+
+.service-detail-card:hover h5 {
+    color: var(--primary-red);
+}
+
+.service-detail-card ul li {
+    transition: all 0.3s ease;
+    padding: 2px 0;
+}
+
+.service-detail-card ul li:hover {
+    transform: translateX(5px);
+}
+
+.service-detail-card ul li i {
+    transition: all 0.3s ease;
+}
+
+.service-detail-card:hover ul li i {
+    transform: scale(1.1);
+}
+
+/* Ensure equal heights for elevator solutions cards */
+.elevator-solutions-section .row {
+    align-items: stretch;
+}
+
+.elevator-solutions-section .col-lg-6 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Testimonial Avatar Styles */
+.testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    background: rgba(220, 53, 69, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.testimonial-avatar i {
+    font-size: 1.2rem;
+    color: #dc3545;
+}
+
+.testimonial-card:hover .testimonial-avatar {
+    background: rgba(220, 53, 69, 0.2);
+    transform: scale(1.1);
+}
+
+/* FAQ Item Styles */
+.faq-item {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(220, 53, 69, 0.15) !important;
+}
+
+.faq-item h5 {
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover h5 {
+    color: #dc3545 !important;
+}
+
+.faq-item .fa-question-circle {
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover .fa-question-circle {
+    transform: scale(1.1);
+}
+
+/* Cleaning & Janitorial specific styles */
+.cleaning-janitorial .hero-section {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 50%, #a71e2a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cleaning-janitorial section:not(.hero-section) {
+    position: relative;
+    z-index: 1;
+}
+
+.cleaning-janitorial section:not(.hero-section)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(220, 53, 69, 0.05) 0%, rgba(200, 35, 51, 0.05) 100%);
+    z-index: -1;
+}
+
+.cleaning-janitorial .bg-light {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+}
+
+.cleaning-janitorial .bg-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+}
+
+/* Cleaning Card Styles */
+.cleaning-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.cleaning-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.cleaning-icon {
+    transition: all 0.3s ease;
+}
+
+.cleaning-card:hover .cleaning-icon {
+    transform: scale(1.1);
+}
+
+.cleaning-card:hover .cleaning-icon i {
+    color: #dc3545 !important;
+}
+
+/* Pest Control specific styles */
+.pest-control .hero-section {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 50%, #a71e2a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.pest-control section:not(.hero-section) {
+    position: relative;
+    z-index: 1;
+}
+
+.pest-control section:not(.hero-section)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(220, 53, 69, 0.05) 0%, rgba(200, 35, 51, 0.05) 100%);
+    z-index: -1;
+}
+
+.pest-control .bg-light {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+}
+
+.pest-control .bg-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+}
+
+/* Pest Card Styles */
+.pest-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.pest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.pest-icon {
+    transition: all 0.3s ease;
+}
+
+.pest-card:hover .pest-icon {
+    transform: scale(1.1);
+}
+
+.pest-card:hover .pest-icon i {
+    color: #dc3545 !important;
+}
+
+/* Security & Access Control specific styles */
+.security-access-control .hero-section {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 50%, #a71e2a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.security-access-control section:not(.hero-section) {
+    position: relative;
+    z-index: 1;
+}
+
+.security-access-control section:not(.hero-section)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(220, 53, 69, 0.05) 0%, rgba(200, 35, 51, 0.05) 100%);
+    z-index: -1;
+}
+
+.security-access-control .bg-light {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+}
+
+.security-access-control .bg-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+}
+
+/* Security Card Styles */
+.security-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.security-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.security-icon {
+    transition: all 0.3s ease;
+}
+
+.security-card:hover .security-icon {
+    transform: scale(1.1);
+}
+
+.security-card:hover .security-icon i {
+    color: #dc3545 !important;
+}
+
+/* Disinfection & Sanitization specific styles */
+.disinfection-sanitization .hero-section {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 50%, #a71e2a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.disinfection-sanitization section:not(.hero-section) {
+    position: relative;
+    z-index: 1;
+}
+
+.disinfection-sanitization section:not(.hero-section)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(220, 53, 69, 0.05) 0%, rgba(200, 35, 51, 0.05) 100%);
+    z-index: -1;
+}
+
+.disinfection-sanitization .bg-light {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+}
+
+.disinfection-sanitization .bg-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+}
+
+/* Disinfection Card Styles */
+.disinfection-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.disinfection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.disinfection-icon {
+    transition: all 0.3s ease;
+}
+
+.disinfection-card:hover .disinfection-icon {
+    transform: scale(1.1);
+}
+
+.disinfection-card:hover .disinfection-icon i {
+    color: #dc3545 !important;
 }

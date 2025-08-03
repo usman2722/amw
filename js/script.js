@@ -99,6 +99,185 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Navbar not found with ID mainNavbar');
     }
     
+    // Mobile Dropdown Management - Prevent hover on mobile, only allow click
+    function initMobileDropdownManagement() {
+        const isMobile = window.innerWidth <= 768;
+        const facilityManagementDropdown = document.querySelector('.nav-item.dropdown');
+        
+        if (facilityManagementDropdown) {
+            const dropdownMenu = facilityManagementDropdown.querySelector('.dropdown-menu');
+            const dropdownToggle = facilityManagementDropdown.querySelector('.nav-link');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            if (isMobile) {
+                // Remove hover events on mobile
+                facilityManagementDropdown.removeEventListener('mouseenter', showDropdown);
+                facilityManagementDropdown.removeEventListener('mouseleave', hideDropdown);
+                
+                // Add click event for mobile
+                dropdownToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Prevent Bootstrap from closing the mobile menu
+                    if (navbarCollapse) {
+                        navbarCollapse.classList.add('show');
+                        navbarCollapse.style.display = 'block';
+                    }
+                    
+                    // Toggle dropdown visibility
+                    if (dropdownMenu.classList.contains('show')) {
+                        hideDropdown();
+                    } else {
+                        showDropdown();
+                    }
+                });
+                
+                // Prevent mobile menu from closing when clicking dropdown items
+                dropdownMenu.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!facilityManagementDropdown.contains(e.target)) {
+                        hideDropdown();
+                    }
+                });
+                
+                // Handle submenu toggles on mobile (Hard FM and Soft FM)
+                const submenuToggles = document.querySelectorAll('.dropdown-submenu .dropdown-toggle');
+                console.log('Found submenu toggles:', submenuToggles.length);
+                
+                submenuToggles.forEach((toggle, index) => {
+                    console.log(`Setting up toggle ${index}:`, toggle.textContent.trim());
+                    
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        console.log('Submenu toggle clicked:', this.textContent.trim());
+                        
+                        // Find the next sibling that is a submenu
+                        let submenu = this.nextElementSibling;
+                        while (submenu && !submenu.classList.contains('submenu')) {
+                            submenu = submenu.nextElementSibling;
+                        }
+                        
+                        console.log('Found submenu:', submenu);
+                        
+                        if (submenu && submenu.classList.contains('submenu')) {
+                            const isVisible = submenu.style.display === 'block' || submenu.classList.contains('show');
+                            console.log('Submenu visibility:', isVisible);
+                            
+                            if (isVisible) {
+                                submenu.style.display = 'none';
+                                submenu.classList.remove('show');
+                                this.setAttribute('aria-expanded', 'false');
+                                console.log('Hiding submenu');
+                            } else {
+                                submenu.style.display = 'block';
+                                submenu.classList.add('show');
+                                this.setAttribute('aria-expanded', 'true');
+                                console.log('Showing submenu');
+                            }
+                        }
+                    });
+                });
+                
+                // Override Bootstrap's mobile menu close behavior
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                if (navbarToggler) {
+                    // Remove any existing event listeners to prevent conflicts
+                    const newToggler = navbarToggler.cloneNode(true);
+                    navbarToggler.parentNode.replaceChild(newToggler, navbarToggler);
+                    
+                    newToggler.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse) {
+                            if (navbarCollapse.classList.contains('show')) {
+                                // Close the mobile menu
+                                navbarCollapse.classList.remove('show');
+                                navbarCollapse.style.display = 'none';
+                                
+                                // Also close any open dropdowns
+                                const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+                                openDropdowns.forEach(dropdown => {
+                                    dropdown.classList.remove('show');
+                                    dropdown.style.display = 'none';
+                                    dropdown.style.opacity = '0';
+                                    dropdown.style.visibility = 'hidden';
+                                });
+                                
+                                // Close any open submenus
+                                const openSubmenus = document.querySelectorAll('.submenu[style*="display: block"]');
+                                openSubmenus.forEach(submenu => {
+                                    submenu.style.display = 'none';
+                                });
+                                
+                                // Reset aria-expanded attributes
+                                const expandedToggles = document.querySelectorAll('[aria-expanded="true"]');
+                                expandedToggles.forEach(toggle => {
+                                    toggle.setAttribute('aria-expanded', 'false');
+                                });
+                                
+                                // Trigger Bootstrap's collapse event
+                                const collapseEvent = new Event('hidden.bs.collapse');
+                                navbarCollapse.dispatchEvent(collapseEvent);
+                            } else {
+                                // Open the mobile menu
+                                navbarCollapse.classList.add('show');
+                                navbarCollapse.style.display = 'block';
+                                
+                                // Trigger Bootstrap's show event
+                                const showEvent = new Event('shown.bs.collapse');
+                                navbarCollapse.dispatchEvent(showEvent);
+                            }
+                        }
+                    });
+                }
+                
+            } else {
+                // Desktop behavior - restore hover functionality
+                facilityManagementDropdown.addEventListener('mouseenter', showDropdown);
+                facilityManagementDropdown.addEventListener('mouseleave', hideDropdown);
+                
+                // Remove click event on desktop
+                dropdownToggle.removeEventListener('click', function() {});
+            }
+        }
+        
+        function showDropdown() {
+            if (dropdownMenu) {
+                dropdownMenu.classList.add('show');
+                dropdownMenu.style.display = 'block';
+                dropdownMenu.style.opacity = '1';
+                dropdownMenu.style.visibility = 'visible';
+                dropdownMenu.style.transform = 'none';
+            }
+        }
+        
+        function hideDropdown() {
+            if (dropdownMenu) {
+                dropdownMenu.classList.remove('show');
+                dropdownMenu.style.display = 'none';
+                dropdownMenu.style.opacity = '0';
+                dropdownMenu.style.visibility = 'hidden';
+            }
+        }
+    }
+    
+    // Initialize mobile dropdown management
+    initMobileDropdownManagement();
+    
+    // Re-initialize on window resize
+    window.addEventListener('resize', function() {
+        initMobileDropdownManagement();
+    });
+    
     // Smooth Scrolling for Navigation Links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     
@@ -703,7 +882,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 const section = entry.target;
                 
-                if (section.classList.contains('bg-white')) {
+                if (section.classList.contains('bg-white') || section.classList.contains('bg-danger')) {
                     // Animate statistics
                     setTimeout(() => animateStatistics(), 200);
                     
@@ -719,7 +898,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { threshold: 0.3 });
 
     // Observe data visualization sections
-    const dataVizSections = document.querySelectorAll('.bg-white');
+    const dataVizSections = document.querySelectorAll('.bg-white, .bg-danger');
     dataVizSections.forEach(section => {
         dataVizObserver.observe(section);
     });
